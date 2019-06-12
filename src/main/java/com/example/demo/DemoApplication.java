@@ -6,32 +6,33 @@ import java.util.Scanner;
 public class DemoApplication {
 
     public static void main(String[] args) {
-        String imie;
-        String nazwisko;
-        int wiek;
+        String Name;
+        String LastName;
+        int age;
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Give a name for Your Sim:");
-        imie = scan.nextLine();
-        System.out.println("Podaj nazwisko sima:");
-        nazwisko = scan.nextLine();
-        System.out.println("Podaj wiek sima:");
-        wiek = scan.nextInt();
-        Sim sim = new Sim(wiek, nazwisko, imie);
+        System.out.println("What's your name?");
+        Name = scan.nextLine();
+        System.out.println("What's your surname?");
+        LastName = scan.nextLine();
+        System.out.println("What's your age?");
+        age = scan.nextInt();
+        Sim sim = new Sim(age, LastName, Name);
         System.out.println("Hi " + sim.firstName + " " + sim.surname);
-        System.out.println(sim.firstName + " what budget do you have?");
+        System.out.println(sim.firstName + " what is your budget?");
         double budget = scan.nextDouble();
-        System.out.println("Do you want to go to cinema for comedy,horror or other?(true, false)");
+        System.out.println("What do you want to eat?(true, false)");
         if (doYouWannaGo(scan)) {
-            System.out.println("For which type of movie comedy, horror or other?");
+            System.out.println("What do you want to eat nigiri, tomago, california?");
             scan.nextLine();
-            String movie = scan.nextLine();
-            System.out.println("How many tickets do you need?");
-            int tickets = scan.nextInt();
-            Cinema goToCinema = new Cinema(budget, tickets);
-            goToCinema.setMovie(movie);
-            goToCinema.setTotal();
-            System.out.println(goToCinema.ifCanGoToCinema());
+            String sushiType = scan.nextLine();
+            System.out.println("How many rolls do you want?");
+            int rolls = scan.nextInt();
+            Sushi goforSushi = new Sushi (budget, rolls);
+            goforSushi.setSushi(sushiType);
+            goforSushi.ifCanGoForSushi();
+            goforSushi.setTotal();
+            System.out.println(goforSushi.ifCanGoForSushi());
         } else {
             System.out.println("Maybe next time...");
         }
